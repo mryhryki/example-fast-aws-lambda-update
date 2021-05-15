@@ -1,9 +1,11 @@
 {
   "name": "example-update-aws-lambda-fast",
-  "private": "true",
+  "private": true,
   "description": "AWS Lambda を高速にアップデートするサンプルです。",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild src/index.ts --outfile=dist/index.js --bundle --minify --platform=node --target=node14",
+    "deploy:serverless": "serverless deploy",
+    "deploy": "run-s build deploy:serverless"
   },
   "author": "mryhryki",
   "license": "MIT",
