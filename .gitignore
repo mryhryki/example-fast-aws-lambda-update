@@ -105,3 +105,6 @@ dist
 
 # esbuild outputs
 dist/
+
+# lambda zip
+scripts/lambda.zip
