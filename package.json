@@ -6,5 +6,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mryhryki",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.11.21",
+    "npm-run-all": "^4.1.5",
+    "serverless": "^2.41.2",
+    "typescript": "^4.2.4"
+  }
 }
