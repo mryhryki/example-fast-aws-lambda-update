@@ -1,2 +1,2 @@
-# example-fast-aws-lambda-update
+# example-update-aws-lambda-fast
 AWS Lambda を高速にアップデートするサンプルです。
