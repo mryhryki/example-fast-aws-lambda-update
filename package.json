@@ -8,6 +8,7 @@
     "deploy:function": "node scripts/update_lambda.js",
     "deploy:serverless": "serverless deploy",
     "deploy": "run-s build deploy:serverless",
+    "remove": "serverless remove",
     "zip": "zip scripts/lambda.zip dist/index.js"
   },
   "author": "mryhryki",
