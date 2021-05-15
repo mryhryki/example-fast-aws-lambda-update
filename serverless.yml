@@ -1,6 +1,12 @@
 service: example-update-aws-lambda-fast
 frameworkVersion: '2'
 
+custom:
+  bucket: 'b1ec0be3-01c8-438a-817f-710e84866464'
+  esbuild:
+    bundle: true
+    minify: true
+
 functions:
   index:
     handler: dist/index.handler
@@ -15,11 +21,12 @@ provider:
   memorySize: 128
   timeout: 10
   logRetentionInDays: 30
-  deploymentBucket: b1ec0be3-01c8-438a-817f-710e84866464
+  deploymentBucket: "${self:custom.bucket}"
   versionFunctions: false
   lambdaHashingVersion: '20201221'
   environment:
     TZ: Asia/Tokyo
+    S3_BUCKET: "${self:custom.bucket}"
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
   iam:
     role:
@@ -28,8 +35,12 @@ provider:
           Action:
             - s3:ListBucket
           Resource:
-            - arn:aws:s3:::b1ec0be3-01c8-438a-817f-710e84866464
+            - "arn:aws:s3:::${self:custom.bucket}"
+
+plugins:
+  - serverless-esbuild
 
 package:
   patterns:
-    - dist/**
+    - "dist/**"
+    - "!node_modules/**"

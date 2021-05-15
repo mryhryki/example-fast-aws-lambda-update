@@ -2,7 +2,7 @@ const fs = require("fs/promises");
 const path = require("path");
 const {Lambda} = require("aws-sdk");
 
-const lambda = new Lambda({apiVersion: "2015-03-31"});
+const lambda = new Lambda({apiVersion: "2015-03-31", region: "ap-northeast-1"});
 const functionName = 'example-update-aws-lambda-fast-prod-index';
 
 (async () => {
